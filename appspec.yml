@@ -44,7 +44,6 @@ permissions:
 # If you are not running any commands on the Amazon EC2 instance, then remove
 #   the "hooks" section altogether. A blank or incomplete "hooks" section
 #   may cause associated deployments to fail.
-hooks:
 # For each deployment lifecycle event, specify multiple "location" entries
 #   if you want to run multiple scripts during that event.
 # You can specify "timeout" as the number of seconds to wait until failing the deployment
@@ -68,24 +67,12 @@ hooks:
 # During the ApplicationStop deployment lifecycle event, run the commands
 #   in the script specified in "location" starting from the root of the
 #   revision's file bundle.
-  ApplicationStop:
-    - location: stop_application
-      timeout: 20
-      runas: ec2-user
 # During the BeforeInstall deployment lifecycle event, run the commands
 #   in the script specified in "location".
 # During the AfterInstall deployment lifecycle event, run the commands
 #   in the script specified in "location".
 # During the ApplicationStart deployment lifecycle event, run the commands
 #   in the script specified in "location".
-  ApplicationStart:
-    - location: write_codedeploy_config.sh
-      location: start_application
-      timeout: 20
-      runas: ec2-user
+
 # During the ValidateService deployment lifecycle event, run the commands
 #   in the script specified in "location".
-  ValidateService:
-    - location: validate.sh
-      timeout: 120
-      runas: ec2-user
