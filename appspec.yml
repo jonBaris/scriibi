@@ -79,7 +79,8 @@ hooks:
 # During the ApplicationStart deployment lifecycle event, run the commands
 #   in the script specified in "location".
   ApplicationStart:
-    - location: start.sh
+    - location: write_codedeploy_config.sh
+      location: start_application
       timeout: 20
       runas: ec2-user
 # During the ValidateService deployment lifecycle event, run the commands
